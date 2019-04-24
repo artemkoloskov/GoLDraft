@@ -1,0 +1,13 @@
+c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/bin/Debug/GoLDraft.exe.config
+c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/bin/Debug/GoLDraft.exe
+c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/bin/Debug/GoLDraft.pdb
+c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.csprojResolveAssemblyReference.cache
+c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.exe
+c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.pdb
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/bin/Debug/GoLDraft.exe.config
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/bin/Debug/GoLDraft.exe
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/bin/Debug/GoLDraft.pdb
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.csprojAssemblyReference.cache
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.csproj.CoreCompileInputs.cache
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.exe
+/Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.pdb

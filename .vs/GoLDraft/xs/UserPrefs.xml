@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{BCDF9F1C-0D85-4617-A5E5-5861925C2904}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoLDraft/Program.cs">
+    <Files>
+      <File FileName="GoLDraft/Program.cs" Line="173" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoLDraft" expanded="True">
+            <Node name="GoLDraft" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GoLDraft PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
