@@ -11,3 +11,9 @@ c:/users/artem_000/documents/visual studio 2013/Projects/GoLDraft/GoLDraft/obj/D
 /Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.csproj.CoreCompileInputs.cache
 /Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.exe
 /Users/artem.koloskov/OneDrive/Work Files/C#_projects/GoLDraft/GoLDraft/obj/Debug/GoLDraft.pdb
+C:\Users\koloskovae\OneDrive\Work Files\C#_projects\GoLDraft\GoLDraft\bin\Debug\GoLDraft.exe.config
+C:\Users\koloskovae\OneDrive\Work Files\C#_projects\GoLDraft\GoLDraft\obj\Debug\GoLDraft.exe
+C:\Users\koloskovae\OneDrive\Work Files\C#_projects\GoLDraft\GoLDraft\obj\Debug\GoLDraft.pdb
+C:\Users\koloskovae\OneDrive\Work Files\C#_projects\GoLDraft\GoLDraft\bin\Debug\GoLDraft.exe
+C:\Users\koloskovae\OneDrive\Work Files\C#_projects\GoLDraft\GoLDraft\bin\Debug\GoLDraft.pdb
+C:\Users\koloskovae\OneDrive\Work Files\C#_projects\GoLDraft\GoLDraft\obj\Debug\GoLDraft.csprojResolveAssemblyReference.cache

@@ -4,28 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace GoLDraft
 {
     internal class Program
     {
         private static readonly Random gen = new Random();
-        private const int CREATURE_DIMENSION = 50;
+        private const int CREATURE_DIMENSION = 60;
         private const string LIVE_CELL = "OO";
         private const string DEAD_CELL = "  ";
 
         private static void Main(string[] args)
         {
-            bool[,] str = new bool[CREATURE_DIMENSION, CREATURE_DIMENSION];
+            bool[,] world = new bool[CREATURE_DIMENSION, CREATURE_DIMENSION];
 
             Console.WriteLine("Push any button to start growth.");
             Console.ReadKey();
 
-            for (int i = 0; i <= str.GetUpperBound(0); i++)
+            for (int i = 0; i <= world.GetUpperBound(0); i++)
             {
-                for (int j = 0; j <= str.GetUpperBound(1); j++)
+                for (int j = 0; j <= world.GetUpperBound(1); j++)
                 {
-                    str[i, j] = RandomBool();
+                    world[i, j] = RandomBool();
                 }
             }
 
@@ -34,14 +35,19 @@ namespace GoLDraft
                 Console.Clear();
                 Console.WriteLine("i: " + i);
 
-                PrintArray(str);
+                Print(world);
 
-                EvolveArray(str);
+                Evolve(world);
 
-                Thread.Sleep(20);
+                WaitBeforeNextEvolution(5);
             }
 
             Console.ReadKey();
+        }
+
+        private static void WaitBeforeNextEvolution(int time)
+        {
+            Thread.Sleep(time);
         }
 
         private static bool RandomBool()
@@ -49,68 +55,70 @@ namespace GoLDraft
             return gen.Next(100) < 50;
         }
 
-        private static void PrintArray(bool[,] array)
+        private static void Print(bool[,] world)
         {
-            for (int i = 0; i <= array.GetUpperBound(0); i++)
+            for (int i = 0; i <= world.GetUpperBound(0); i++)
             {
-                StringBuilder str = new StringBuilder();
+                StringBuilder worldLine = new StringBuilder();
 
-                for (int j = 0; j <= array.GetUpperBound(1); j++)
+                for (int j = 0; j <= world.GetUpperBound(1); j++)
                 {
-                    if (array[i, j])
+                    if (world[i, j])
                     {
-                        str.Append(LIVE_CELL);
+                        worldLine.Append(LIVE_CELL);
                     }
                     else
                     {
-                        str.Append(DEAD_CELL);
+                        worldLine.Append(DEAD_CELL);
                     }
                 }
 
-                Console.WriteLine(str);
+                Console.WriteLine(worldLine);
             }
         }
 
-        private static void EvolveArray(bool[,] array)
+        private static void Evolve(bool[,] world)
         {
-            bool[,] oldState = new bool[CREATURE_DIMENSION, CREATURE_DIMENSION];
+            bool[,] oldWorldState = new bool[CREATURE_DIMENSION, CREATURE_DIMENSION];
 
-            CopyArray(array, oldState);
+            Copy(world, oldWorldState);
 
-            for (int i = 0; i <= array.GetUpperBound(0); i++)
+            for (int i = 0; i <= world.GetUpperBound(0); i++)
             {
-                for (int j = 0; j <= array.GetUpperBound(1); j++)
+                for (int j = 0; j <= world.GetUpperBound(1); j++)
                 {
-                    array[i, j] = CheckNewState(oldState, i, j);
+                    world[i, j] = GetNewWorldState(oldWorldState, i, j);
                 }
             }
         }
 
-        private static void CopyArray(bool[,] from, bool[,] to)
+        private static void Copy(bool[,] fromWorld, bool[,] toWorld)
         {
-            if (from.GetUpperBound(0) == to.GetUpperBound(0) && from.GetUpperBound(1) == to.GetUpperBound(1))
+            if (fromWorld.GetUpperBound(0) == toWorld.GetUpperBound(0) && fromWorld.GetUpperBound(1) == toWorld.GetUpperBound(1))
             {
-                for (int i = 0; i <= from.GetUpperBound(0); i++)
+                for (int i = 0; i <= fromWorld.GetUpperBound(0); i++)
                 {
-                    for (int j = 0; j <= from.GetUpperBound(1); j++)
+                    for (int j = 0; j <= fromWorld.GetUpperBound(1); j++)
                     {
-                        if (from[i, j])
+                        if (fromWorld[i, j])
                         {
-                            to[i, j] = true;
+                            toWorld[i, j] = true;
                         }
                         else
                         {
-                            to[i, j] = false;
+                            toWorld[i, j] = false;
                         }
                     }
                 }
             }
         }
 
-        private static bool CheckNewState(bool[,] oldState, int i, int j)
+        private static bool GetNewWorldState(bool[,] oldWorldState, int i, int j)
         {
             int numOfAliveCells = 0;
 
+            // We will be checking cells left and right, each by one, and up and down,
+            // each by one, of current [i, j] cell
             for (int x = i - 1; x <= i + 1; x++)
             {
                 for (int y = j - 1; y <= j + 1; y++)
@@ -118,11 +126,13 @@ namespace GoLDraft
                     int realI;
                     int realJ;
 
+                    // To "enclose" a world on itself we check if x goes out
+                    // of world boundaries and swictch it to the opposite side of the world
                     if (x < 0)
                     {
-                        realI = oldState.GetUpperBound(0);
+                        realI = oldWorldState.GetUpperBound(0);
                     }
-                    else if (x > oldState.GetUpperBound(0))
+                    else if (x > oldWorldState.GetUpperBound(0))
                     {
                         realI = 0;
                     }
@@ -131,11 +141,13 @@ namespace GoLDraft
                         realI = x;
                     }
 
+                    // To "enclose" a world on itself we check if y goes out
+                    // of world boundaries and swictch it to the opposite side of the world
                     if (y < 0)
                     {
-                        realJ = oldState.GetUpperBound(0);
+                        realJ = oldWorldState.GetUpperBound(0);
                     }
-                    else if (y > oldState.GetUpperBound(0))
+                    else if (y > oldWorldState.GetUpperBound(0))
                     {
                         realJ = 0;
                     }
@@ -146,21 +158,22 @@ namespace GoLDraft
 
                     if (realI != i || realJ != j)
                     {
-                        if (oldState[realI, realJ])
+                        if (oldWorldState[realI, realJ])
                         {
                             numOfAliveCells++;
                         }
                     }
-
                 }
             }
 
-            if (!oldState[i, j])
+            // Dead cell becomes alive if it has 3 alive neighbores
+            if (!oldWorldState[i, j])
             {
                 if (numOfAliveCells == 3)
                 {
                     return true;
                 }
+
                 return false;
             }
 
